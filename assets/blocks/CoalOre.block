@@ -1,0 +1,9 @@
+{
+    "basedOn": "core:mineral",
+
+    "displayName": "Coal Ore",
+
+    "entity": {
+        "prefab": "Smithing:CoalOre"
+    }
+}

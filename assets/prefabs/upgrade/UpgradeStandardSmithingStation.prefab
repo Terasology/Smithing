@@ -1,0 +1,14 @@
+{
+    "ProcessDefinition": {
+        "processType": "Crafting:UpgradeCraftingWorkstation"
+    },
+    "CraftingStationUpgradeRecipe": {
+        "stationType": "Smithing:BasicSmithingStation",
+        "targetStationType": "Smithing:StandardSmithingStation",
+        "targetStationPrefab": "Smithing:StandardSmithingStation",
+
+        "recipeComponents": ["3*Smithing:copperStructure"],
+
+        "resultBlockUri": "Smithing:StandardSmithingStation"
+    }
+}

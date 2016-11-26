@@ -1,0 +1,14 @@
+{
+    "hardness": 6,
+
+    "displayName": "Standard Smithing Station",
+
+    "categories": ["stone"],
+
+    "tiles": {
+        "top": "Smithing:BasicSmithingStationTop",
+        "bottom": "Smithing:BasicSmithingStationBottom",
+        "sides": "Smithing:BasicSmithingStationSides"
+    }
+
+}

@@ -1,0 +1,18 @@
+{
+    "texture": "Smithing:bronze",
+    "textureSize": [512, 512],
+    "grid": {
+        "tileSize": [64, 64],
+        "gridDimensions": [8, 8],
+        "tileNames": [
+            "ChalcopyriteOreCrystal", "ChalcopyriteCrystalDust", "CopperNugget", "", "", "", "", "",
+            "Coal", "Charcoal", "", "", "", "", "", "",
+            "CopperNails", "", "", "", "", "", "", "",
+            "", "", "", "", "", "", "", "",
+            "CopperAxe", "CopperHammer", "CopperShovel", "", "", "", "", "",
+            "BronzeAxe", "BronzeHammer", "BronzeShovel", "BronzePickaxe", "", "", "", "",
+            "", "", "", "", "", "", "", "",
+            "", "", "", "", "", "", "", ""
+        ]
+    }
+}

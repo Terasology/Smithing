@@ -1,0 +1,9 @@
+{
+    "basedOn": "core:mineral",
+
+    "displayName": "Bituminous Coal Ore",
+
+    "entity": {
+        "prefab": "Smithing:BituminousCoalOre"
+    }
+}

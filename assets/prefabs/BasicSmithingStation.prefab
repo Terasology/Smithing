@@ -1,0 +1,75 @@
+{
+    "DisplayName": {
+        "name": "Basic Smithing Station"
+    },
+    "BlockDropGrammar": {
+        "blockDrops": ["2*Core:CobbleStone"]
+    },
+    "InteractionTarget": {},
+    "InteractionScreen": {
+        "screen": "Smithing:MetalStation"
+    },
+    "Workstation": {
+        "supportedProcessTypes": {
+            "Machines:Furnace": true,
+            "Smithing:BasicSmithingProcess": false,
+            "Crafting:UpgradeCraftingWorkstation": false
+        }
+    },
+    "WorkstationInventory": {
+        "slotAssignments": {
+            "INPUT": {
+                "slotStart": 2,
+                "slotCount": 3
+            },
+            "TOOL": {
+                "slotStart": 1,
+                "slotCount": 1
+            },
+            "UPGRADE": {
+                "slotStart": 0,
+                "slotCount": 1
+            },
+            "FUEL": {
+                "slotStart": 6,
+                "slotCount": 1
+            },
+            "OUTPUT": {
+                "slotStart": 5,
+                "slotCount": 1
+            }
+        }
+    },
+    "CraftingStation": {
+        "type": "Smithing:BasicSmithingStation",
+        "workstationUITexture": "Smithing:BasicMetalworking"
+    },
+    "Inventory": {
+        "privateToOwner": false,
+        "itemSlots": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    "HeatProducer": {
+        "temperatureAbsorptionRate": 0.9,
+        "temperatureLossRate": 0.7,
+        "maximumTemperature": 1000
+    },
+    "Health": {
+        "currentHealth": 5,
+        "maxHealth": 5,
+        "regenRate": 1,
+        "waitBeforeRegen": 2,
+        "destroyEntityOnNoHealth": true
+    },
+    "ActAsBlock": {
+        "block": "Smithing:BasicSmithingStation"
+    },
+    "DropBlockInventory": {}
+}
