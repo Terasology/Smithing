@@ -1,0 +1,13 @@
+{
+    "ProcessDefinition": {
+        "processType": "Smithing:BasicSmithingProcess"
+    },
+    "CraftingStationRecipe": {
+        "recipeId": "Bars|Smithing:TinBar",
+
+        "recipeComponents": ["2*Smithing:tinNugget"],
+        "recipeTools": ["1*hammer"],
+
+        "itemResult": "1*Smithing:TinBar"
+    }
+}

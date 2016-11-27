@@ -1,0 +1,13 @@
+{
+    "parent": "engine:iconItem",
+    "Item": {
+        "icon": "Smithing:bronze#TinNugget",
+        "stackId": "Smithing:tinNugget"
+    },
+    "DisplayName": {
+        "name": "Tin Nugget"
+    },
+    "CraftingStationIngredient": {
+        "type": "Smithing:tinNugget"
+    }
+}

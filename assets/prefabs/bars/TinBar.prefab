@@ -1,0 +1,13 @@
+{
+    "parent": "engine:iconItem",
+    "Item": {
+        "icon": "Smithing:TinBar",
+        "stackId": "Smithing:tinBar"
+    },
+    "DisplayName": {
+        "name": "Tin Bar"
+    },
+    "CraftingStationIngredient": {
+        "type": "Smithing:tinBar"
+    }
+}

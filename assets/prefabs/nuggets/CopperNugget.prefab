@@ -1,0 +1,13 @@
+{
+    "parent": "engine:iconItem",
+    "Item": {
+        "icon": "Smithing:bronze#CopperNugget",
+        "stackId": "Smithing:copperNugget"
+    },
+    "DisplayName": {
+        "name": "Copper Nugget"
+    },
+    "CraftingStationIngredient": {
+        "type": "Smithing:copperNugget"
+    }
+}

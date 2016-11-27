@@ -1,0 +1,13 @@
+{
+    "parent": "engine:iconItem",
+    "Item": {
+        "icon": "Smithing:CopperBar",
+        "stackId": "Smithing:copperBar"
+    },
+    "DisplayName": {
+        "name": "Copper Bar"
+    },
+    "CraftingStationIngredient": {
+        "type": "Smithing:copperBar"
+    }
+}
