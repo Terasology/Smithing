@@ -1,0 +1,13 @@
+{
+    "parent": "engine:iconItem",
+    "Item": {
+        "icon": "Smithing:IronBar",
+        "stackId": "Smithing:ironBar"
+    },
+    "DisplayName": {
+        "name": "Iron Bar"
+    },
+    "CraftingStationIngredient": {
+        "type": "Smithing:ironBar"
+    }
+}

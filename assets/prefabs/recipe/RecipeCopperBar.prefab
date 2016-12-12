@@ -7,6 +7,7 @@
 
         "recipeComponents": ["2*Smithing:copperNugget"],
         "recipeTools": ["1*hammer"],
+        "requiredTemperature": 250,
 
         "itemResult": "1*Smithing:CopperBar"
     }

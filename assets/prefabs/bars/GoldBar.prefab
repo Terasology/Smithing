@@ -1,0 +1,13 @@
+{
+    "parent": "engine:iconItem",
+    "Item": {
+        "icon": "Smithing:GoldBar",
+        "stackId": "Smithing:goldBar"
+    },
+    "DisplayName": {
+        "name": "Gold Bar"
+    },
+    "CraftingStationIngredient": {
+        "type": "Smithing:goldBar"
+    }
+}

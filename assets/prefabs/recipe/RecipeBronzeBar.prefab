@@ -1,0 +1,14 @@
+{
+    "ProcessDefinition": {
+        "processType": "Smithing:BasicSmithingProcess"
+    },
+    "CraftingStationRecipe": {
+        "recipeId": "Bars|Smithing:BronzeBar",
+
+        "recipeComponents": ["2*Smithing:copperNugget", "2*Smithing:tinNugget"],
+        "recipeTools": ["1*hammer"],
+        "requiredTemperature": 300,
+
+        "itemResult": "1*Smithing:BronzeBar"
+    }
+}
