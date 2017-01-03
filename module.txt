@@ -1,6 +1,6 @@
 {
     "id" : "Smithing",
-    "version" : "0.1.0-SNAPSHOT",
+    "version" : "1.0.0-SNAPSHOT",
     "author" : "XTariq",
     "displayName" : "Smithing",
     "description" : "A module that implements some simple systems for smithing metal-based items",
@@ -19,7 +19,7 @@
             },
             {
                 "id" : "WorkstationCrafting",
-                "minVersion" : "0.1.0"
+                "minVersion" : "1.0.0"
             }
     ],
     "serverSideOnly" : false
