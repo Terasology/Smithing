@@ -1,0 +1,14 @@
+{
+  "ProcessDefinition": {
+    "processType": "Smithing:BasicSmithingProcess"
+  },
+  "CraftingStationRecipe": {
+    "recipeId": "Bars|Smithing:LimestoneBar",
+
+    "recipeComponents": ["4*Smithing:limestoneNugget"],
+    "recipeTools": ["1*hammer"],
+    "requiredTemperature": 450,
+
+    "itemResult": "1*Smithing:LimestoneBar"
+  }
+}
