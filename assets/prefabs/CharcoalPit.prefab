@@ -2,6 +2,7 @@
     "DisplayName": {
         "name": "Charcoal Pit"
     },
+    "Network": {},
     "Health": {
         "currentHealth": 5,
         "maxHealth": 5,
