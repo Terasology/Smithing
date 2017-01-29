@@ -16,12 +16,19 @@
 package org.terasology.smithing.component;
 
 import org.terasology.entitySystem.Component;
+import org.terasology.network.Replicate;
 
 public class CharcoalPitComponent implements Component {
+    @Replicate
     public long burnStartWorldTime;
+    @Replicate
     public long burnFinishWorldTime;
+    @Replicate
     public int minimumLogCount;
+    @Replicate
     public int maximumLogCount;
+    @Replicate
     public int inputSlotCount;
+    @Replicate
     public int outputSlotCount;
 }
