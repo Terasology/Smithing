@@ -1,0 +1,24 @@
+{
+    "OreGenDefinition" :  {},
+    "PocketOreGen":
+    {
+        "block" : "Smithing:IronOre",
+        "frequency": 20,
+        "frequencyRange" : 7.5,
+        "radius" : 2.5,
+        "radiusRange" : 1,
+        "thickness" : 2.5,
+        "thicknessRange" : 0,
+        "angle" : 1,
+        "angleRange" : 1,
+        "multiplier" : 1,
+        "multiplierRange" : 0,
+        "density" : 1.75,
+        "densityRange" : 0.25,
+        "noiseLevel" : 0.01,
+        "noiseLevelRange" : 0,
+        "noiseCutoff" : 0,
+        "noiseCutoffRange" : 0,
+        "densityCutoff" : 20
+    }
+}
