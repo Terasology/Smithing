@@ -15,9 +15,6 @@
  */
 package org.terasology.smithing.system;
 
-import org.terasology.smithing.component.CharcoalPitComponent;
-import org.terasology.smithing.event.OpenCharcoalPitRequest;
-import org.terasology.smithing.ui.UICharcoalPit;
 import org.terasology.engine.Time;
 import org.terasology.entitySystem.entity.EntityManager;
 import org.terasology.entitySystem.entity.EntityRef;
@@ -26,9 +23,12 @@ import org.terasology.entitySystem.systems.BaseComponentSystem;
 import org.terasology.entitySystem.systems.RegisterMode;
 import org.terasology.entitySystem.systems.RegisterSystem;
 import org.terasology.entitySystem.systems.UpdateSubscriberSystem;
-import org.terasology.logic.particles.BlockParticleEffectComponent;
+import org.terasology.particles.components.ParticleEmitterComponent;
 import org.terasology.registry.In;
 import org.terasology.rendering.nui.NUIManager;
+import org.terasology.smithing.component.CharcoalPitComponent;
+import org.terasology.smithing.event.OpenCharcoalPitRequest;
+import org.terasology.smithing.ui.UICharcoalPit;
 
 @RegisterSystem(value = RegisterMode.CLIENT)
 public class CharcoalPitClientSystem extends BaseComponentSystem implements UpdateSubscriberSystem {
@@ -49,9 +49,9 @@ public class CharcoalPitClientSystem extends BaseComponentSystem implements Upda
     public void update(float delta) {
         long gameTimeInMs = time.getGameTimeInMs();
         if (gameTimeInMs > lastUpdate + 250) {
-            for (EntityRef charcoalPit : entityManager.getEntitiesWith(CharcoalPitComponent.class, BlockParticleEffectComponent.class)) {
-                BlockParticleEffectComponent particles = charcoalPit.getComponent(BlockParticleEffectComponent.class);
-                particles.spawnCount += 5;
+            for (EntityRef charcoalPit : entityManager.getEntitiesWith(CharcoalPitComponent.class, ParticleEmitterComponent.class)) {
+                ParticleEmitterComponent particles = charcoalPit.getComponent(ParticleEmitterComponent.class);
+                particles.particleSpawnsLeft += 5;
                 charcoalPit.saveComponent(particles);
             }
 
