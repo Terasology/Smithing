@@ -69,6 +69,7 @@
         "waitBeforeRegen": 3,
         "destroyEntityOnNoHealth": true
     },
+    "Network": {},
     "ActAsBlock": {
         "block": "Smithing:BasicSmithingStation"
     },

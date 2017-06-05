@@ -1,0 +1,13 @@
+{
+  "parent": "engine:iconItem",
+  "Item": {
+    "icon": "Smithing:LimestoneBar",
+    "stackId": "Smithing:limestoneBar"
+  },
+  "DisplayName": {
+    "name": "Limestone Bar"
+  },
+  "CraftingStationIngredient": {
+    "type": "Smithing:limestoneBar"
+  }
+}
