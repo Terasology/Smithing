@@ -1,0 +1,24 @@
+{
+    "OreGenDefinition": {},
+    "PocketOreGen":
+    {
+        "block" : "Smithing:GoldOre",
+        "frequency": 7.5,
+        "frequencyRange" : 2.5,
+        "radius" : 1.75,
+        "radiusRange" : 0.5,
+        "thickness" : 1.5,
+        "thicknessRange" : 0,
+        "angle" : 1,
+        "angleRange" : 1,
+        "multiplier" : 1,
+        "multiplierRange" : 0,
+        "density" : 1.25,
+        "densityRange" : 0.2,
+        "noiseLevel" : 0.01,
+        "noiseLevelRange" : 0,
+        "noiseCutoff" : 0,
+        "noiseCutoffRange" : 0,
+        "densityCutoff" : 40
+    }
+}

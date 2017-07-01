@@ -1,0 +1,17 @@
+{
+    "basedOn": "core:mineral",
+
+    "tiles": {
+      "top": "Smithing:TinOre",
+      "sides": "Smithing:TinOre",
+      "bottom": "Smithing:TinOre"
+    },
+
+    "title" : "Tin Ore",
+
+    "displayName": "Tin Ore",
+
+    "entity": {
+        "prefab": "Smithing:TinOre"
+    }
+}

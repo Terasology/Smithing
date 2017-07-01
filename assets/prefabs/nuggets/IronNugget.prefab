@@ -1,0 +1,13 @@
+{
+    "parent": "engine:iconItem",
+    "Item": {
+        "icon": "Smithing:IronNugget",
+        "stackId": "Smithing:ironNugget"
+    },
+    "DisplayName": {
+        "name": "Iron Nugget"
+    },
+    "CraftingStationIngredient": {
+        "type": "Smithing:ironNugget"
+    }
+}

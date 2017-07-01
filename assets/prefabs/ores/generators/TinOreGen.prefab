@@ -1,0 +1,24 @@
+{
+    "OreGenDefinition" :  {},
+    "PocketOreGen":
+    {
+        "block" : "Smithing:TinOre",
+        "frequency": 25,
+        "frequencyRange" : 5,
+        "radius" : 3,
+        "radiusRange" : 1,
+        "thickness" : 3,
+        "thicknessRange" : 0,
+        "angle" : 1,
+        "angleRange" : 1,
+        "multiplier" : 1,
+        "multiplierRange" : 0,
+        "density" : 2,
+        "densityRange" : 0.15,
+        "noiseLevel" : 0.01,
+        "noiseLevelRange" : 0,
+        "noiseCutoff" : 0,
+        "noiseCutoffRange" : 0,
+        "densityCutoff" : 7
+    }
+}

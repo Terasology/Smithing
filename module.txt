@@ -1,6 +1,6 @@
 {
     "id" : "Smithing",
-    "version" : "1.0.1-SNAPSHOT",
+    "version" : "1.0.2-SNAPSHOT",
     "author" : "XTariq",
     "displayName" : "Smithing",
     "description" : "A module that implements some simple systems for smithing metal-based items",
@@ -12,6 +12,10 @@
             {
                 "id" : "MultiBlock",
                 "minVersion" : "1.0.0"
+            },
+            {
+                "id": "OreGeneration",
+                "minVersion": "1.0.0"
             },
             {
                 "id" : "Workstation",

@@ -1,0 +1,17 @@
+{
+    "basedOn": "core:mineral",
+
+    "tiles": {
+      "top": "Core:IronOre",
+      "sides": "Core:IronOre",
+      "bottom": "Core:IronOre"
+    },
+
+    "title" : "Silver Ore",
+
+    "displayName": "Silver Ore",
+
+    "entity": {
+        "prefab": "Smithing:SilverOre"
+    }
+}

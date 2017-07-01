@@ -1,0 +1,17 @@
+{
+    "basedOn": "core:mineral",
+
+    "tiles": {
+      "top": "Smithing:MysticOre",
+      "sides": "Smithing:MysticOre",
+      "bottom": "Smithing:MysticOre"
+    },
+
+    "title" : "Mystic Ore",
+
+    "displayName": "Mystic Ore",
+
+    "entity": {
+        "prefab": "Smithing:MysticOre"
+    }
+}

@@ -1,0 +1,17 @@
+{
+    "basedOn": "core:mineral",
+
+    "tiles": {
+      "top": "Smithing:PlatinumOre",
+      "sides": "Smithing:PlatinumOre",
+      "bottom": "Smithing:PlatinumOre"
+    },
+
+    "title" : "Platinum Ore",
+
+    "displayName": "Platinum Ore",
+
+    "entity": {
+        "prefab": "Smithing:PlatinumOre"
+    }
+}

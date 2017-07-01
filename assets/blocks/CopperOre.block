@@ -1,0 +1,17 @@
+{
+    "basedOn": "core:mineral",
+
+    "tiles": {
+      "top": "Core:CopperOre",
+      "sides": "Core:CopperOre",
+      "bottom": "Core:CopperOre"
+    },
+
+    "title" : "Copper Ore",
+
+    "displayName": "Copper Ore",
+
+    "entity": {
+        "prefab": "Smithing:CopperOre"
+    }
+}
