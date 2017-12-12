@@ -50,6 +50,9 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
+/*
+* Establishes a system for registering new recipes
+*/
 @RegisterSystem
 public class RegisterSmithingRecipes extends BaseComponentSystem {
     @In
@@ -69,6 +72,9 @@ public class RegisterSmithingRecipes extends BaseComponentSystem {
         addMultiblockRecipes();
     }
 
+    /*
+    * Adds a new smithing recipe to the workstattion
+    */
     private void addWorkstationRecipes() {
         multiBlockRecipeRegistry.addMultiBlockFormItemRecipe(
                 new UniformMultiBlockFormItemRecipe(
@@ -78,6 +84,9 @@ public class RegisterSmithingRecipes extends BaseComponentSystem {
                         new UniformBlockReplacementCallback<Void>(blockManager.getBlock("Smithing:BasicSmithingStation"))));
     }
 
+    /*
+    * Adds a new multiblock recipe
+    */
     private void addMultiblockRecipes() {
         multiBlockRecipeRegistry.addMultiBlockFormItemRecipe(
                 new SurroundMultiBlockFormItemRecipe(
@@ -92,7 +101,9 @@ public class RegisterSmithingRecipes extends BaseComponentSystem {
         bloomeryRecipe.addLayer(2, 2, new BlockUriEntityFilter(new BlockUri("Core:Brick")));
         multiBlockRecipeRegistry.addMultiBlockFormItemRecipe(bloomeryRecipe);
     }
-
+    /*
+    * Creates the charcoal pit
+    */
     private final static class CharcoalPitCallback implements MultiBlockCallback<Void> {
         @Override
         public Map<Vector3i, Block> getReplacementMap(Region3i region, Void designDetails) {
@@ -169,6 +180,9 @@ public class RegisterSmithingRecipes extends BaseComponentSystem {
         }
     }
 
+    /*
+    * Defines the acceptable charcoal pit size
+    */
     private final static class AllowableCharcoalPitSize implements Predicate<Vector3i> {
         @Override
         public boolean apply(Vector3i value) {

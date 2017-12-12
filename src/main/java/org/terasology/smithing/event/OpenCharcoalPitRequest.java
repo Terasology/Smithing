@@ -17,5 +17,8 @@ package org.terasology.smithing.event;
 
 import org.terasology.network.NetworkEvent;
 
+/*
+* Sends request over network to activate the charcoal pit
+*/
 public class OpenCharcoalPitRequest extends NetworkEvent {
 }

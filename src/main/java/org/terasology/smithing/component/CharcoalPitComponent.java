@@ -19,16 +19,28 @@ import org.terasology.entitySystem.Component;
 import org.terasology.network.Replicate;
 
 public class CharcoalPitComponent implements Component {
+
+    /** The time in milliseconds in-game when the charcoal pit begins to burn **/
     @Replicate
     public long burnStartWorldTime;
+
+    /** The time in milliseconds in-game when the charcoal pit stops burning **/
     @Replicate
     public long burnFinishWorldTime;
+
+    /** Minimum number of logs **/
     @Replicate
     public int minimumLogCount;
+
+    /** Maximum number of logs **/
     @Replicate
     public int maximumLogCount;
+
+    /** Number of input slots for fuel**/
     @Replicate
     public int inputSlotCount;
+
+    /** Number of output slots for charcoal**/
     @Replicate
     public int outputSlotCount;
 }

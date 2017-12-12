@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package org.terasology.smithing.system;
 
 import org.terasology.engine.Time;
@@ -42,6 +43,9 @@ import org.terasology.smithing.event.OpenCharcoalPitRequest;
 import org.terasology.smithing.event.ProduceCharcoalRequest;
 import org.terasology.world.block.regions.BlockRegionComponent;
 
+/*
+* Controls the processes of the charcoal pit and alters the players inventory
+*/
 @RegisterSystem(value = RegisterMode.AUTHORITY)
 public class CharcoalPitAuthoritySystem extends BaseComponentSystem {
     public static final String PRODUCE_CHARCOAL_ACTION_PREFIX = "Smithing:ProduceCharcoal|";
@@ -56,11 +60,26 @@ public class CharcoalPitAuthoritySystem extends BaseComponentSystem {
     @In
     private InventoryManager inventoryManager;
 
+    /*
+    * Called upon when the charcoal pit is activated by a user
+    *
+    * @param  event the event associated with activating the charcoal pit
+    * @param  entity the entity that activated the charcoal pit
+    * @param  charcoalPit the charcoal pit component being activated
+    */
     @ReceiveEvent
     public void userActivatesCharcoalPit(ActivateEvent event, EntityRef entity, CharcoalPitComponent charcoalPit) {
         entity.send(new OpenCharcoalPitRequest());
     }
 
+    /*
+    * Removes logs from the players inventory to begin the production of charcoal
+    *
+    * @param  event the event associated with a request to produce charcoal
+    * @param  entity the entity that is trying to produce charcoal
+    * @param  charcoalPit the component of the charcoal pit that is producing charcoal
+    * @param  inventoryComponent the inventory component of the entity
+    */
     @ReceiveEvent
     public void startBurningCharcoal(ProduceCharcoalRequest event, EntityRef entity,
                                      CharcoalPitComponent charcoalPit, InventoryComponent inventoryComponent) {
@@ -102,6 +121,14 @@ public class CharcoalPitAuthoritySystem extends BaseComponentSystem {
         }
     }
 
+    /*
+    * Adds the produced charcoal to the players inventory
+    *
+    * @param  event the event corresponding to triggering a delayed action
+    * @param  entity the entity triggering the delayed action
+    * @param  charcoalPit the component of the charcoal pit
+    * @param  inventoryComponent the inventory component of the entity
+    */
     @ReceiveEvent
     public void charcoalBurningFinished(DelayedActionTriggeredEvent event, EntityRef entity,
                                         CharcoalPitComponent charcoalPit, InventoryComponent inventoryComponent) {

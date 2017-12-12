@@ -18,6 +18,9 @@ package org.terasology.smithing.event;
 import org.terasology.entitySystem.event.Event;
 import org.terasology.network.ServerEvent;
 
+/*
+* Sends a request to begin producing charcoal
+*/
 @ServerEvent
 public class ProduceCharcoalRequest implements Event {
 }

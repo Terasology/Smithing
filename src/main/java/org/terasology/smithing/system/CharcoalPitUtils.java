@@ -21,10 +21,21 @@ import org.terasology.entitySystem.entity.EntityRef;
 import org.terasology.logic.inventory.InventoryUtils;
 import org.terasology.logic.inventory.ItemComponent;
 
+/*
+* Deals with the logic and variables of the charcoal pit
+*/
 public final class CharcoalPitUtils {
     private CharcoalPitUtils() {
     }
 
+    /*
+    * Calculates the number of produced charcoal
+    *
+    * @param  logCount the number of inputted logs
+    * @param  charcoalPitEntity the charcoal pit entity that has produced the charcoal
+    *
+    * @return the number of charcoal
+    */
     public static int getResultCharcoalCount(int logCount, EntityRef charcoalPitEntity) {
         CharcoalPitComponent charcoalPit = charcoalPitEntity.getComponent(CharcoalPitComponent.class);
         int min = charcoalPit.minimumLogCount;
@@ -33,6 +44,13 @@ public final class CharcoalPitUtils {
         return Math.round(1f * logCount * logCount / max);
     }
 
+    /*
+    * Retrieves the number of logs inputted into the charcoal pit
+    *
+    * @param  charcoalPitEntity the charcoal pit entity that contains the logs
+    *
+    * @return the number of logs
+    */
     public static int getLogCount(EntityRef charcoalPitEntity) {
         CharcoalPitComponent charcoalPit = charcoalPitEntity.getComponent(CharcoalPitComponent.class);
         int logCount = 0;
@@ -48,6 +66,14 @@ public final class CharcoalPitUtils {
         return logCount;
     }
 
+    /*
+    * Computes if the charcoal pit is able to burn the logs and produce charcoal
+    *
+    * @param  logCount the number of inputted logs
+    * @param  charcoalPitEntity the charcoal pit entity that is being tested
+    *
+    * @return true if the charcoal pit can successfully produce the the charcoal and false if otherwise
+    */
     public static boolean canBurnCharcoal(int logCount, EntityRef charcoalPitEntity) {
         CharcoalPitComponent charcoalPit = charcoalPitEntity.getComponent(CharcoalPitComponent.class);
 
