@@ -101,6 +101,7 @@ public class RegisterSmithingRecipes extends BaseComponentSystem {
         bloomeryRecipe.addLayer(2, 2, new BlockUriEntityFilter(new BlockUri("Core:Brick")));
         multiBlockRecipeRegistry.addMultiBlockFormItemRecipe(bloomeryRecipe);
     }
+    
     /*
     * Creates the charcoal pit
     */
