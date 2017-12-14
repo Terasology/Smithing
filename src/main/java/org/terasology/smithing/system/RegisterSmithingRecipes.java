@@ -73,7 +73,7 @@ public class RegisterSmithingRecipes extends BaseComponentSystem {
     }
 
     /*
-    * Adds a new smithing recipe to the workstattion
+    * Adds a new smithing recipe to the workstation
     */
     private void addWorkstationRecipes() {
         multiBlockRecipeRegistry.addMultiBlockFormItemRecipe(

@@ -22,7 +22,7 @@ import org.terasology.logic.inventory.InventoryUtils;
 import org.terasology.logic.inventory.ItemComponent;
 
 /*
-* Deals with the logic and variables of the charcoal pit
+* Provides utilities for the logic and variables of the charcoal pit
 */
 public final class CharcoalPitUtils {
     private CharcoalPitUtils() {

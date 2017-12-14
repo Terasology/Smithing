@@ -122,7 +122,7 @@ public class CharcoalPitAuthoritySystem extends BaseComponentSystem {
     }
 
     /*
-    * Adds the produced charcoal to the players inventory
+    * Adds the produced charcoal to the charcoal pit's inventory
     *
     * @param  event the event corresponding to triggering a delayed action
     * @param  entity the entity triggering the delayed action

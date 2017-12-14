@@ -19,7 +19,7 @@ import org.terasology.entitySystem.event.Event;
 import org.terasology.network.ServerEvent;
 
 /*
-* Sends a request to begin producing charcoal
+* Event used to begin the production of charcoal
 */
 @ServerEvent
 public class ProduceCharcoalRequest implements Event {
