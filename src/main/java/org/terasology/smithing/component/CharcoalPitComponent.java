@@ -36,11 +36,11 @@ public class CharcoalPitComponent implements Component {
     @Replicate
     public int maximumLogCount;
 
-    /** Number of input slots for fuel*/
+    /** Number of input slots for fuel */
     @Replicate
     public int inputSlotCount;
 
-    /** Number of output slots for charcoal*/
+    /** Number of output slots for charcoal */
     @Replicate
     public int outputSlotCount;
 }
