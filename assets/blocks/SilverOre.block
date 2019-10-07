@@ -1,10 +1,10 @@
 {
-    "basedOn": "core:mineral",
+    "basedOn": "CoreAssets:mineral",
 
     "tiles": {
-      "top": "Core:IronOre",
-      "sides": "Core:IronOre",
-      "bottom": "Core:IronOre"
+      "top": "CoreAssets:IronOre",
+      "sides": "CoreAssets:IronOre",
+      "bottom": "CoreAssets:IronOre"
     },
 
     "title" : "Silver Ore",

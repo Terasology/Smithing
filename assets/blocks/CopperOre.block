@@ -1,10 +1,10 @@
 {
-    "basedOn": "core:mineral",
+    "basedOn": "CoreAssets:mineral",
 
     "tiles": {
-      "top": "Core:CopperOre",
-      "sides": "Core:CopperOre",
-      "bottom": "Core:CopperOre"
+      "top": "CoreAssets:CopperOre",
+      "sides": "CoreAssets:CopperOre",
+      "bottom": "CoreAssets:CopperOre"
     },
 
     "title" : "Copper Ore",
