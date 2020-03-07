@@ -5,10 +5,10 @@
     "displayName" : "Smithing",
     "description" : "A module that implements some simple systems for smithing metal-based items",
     "dependencies" : [
-        {"id" : "Core", "minVersion" : "2.0.0"},
+        {"id" : "Core", "minVersion" : "3.0.0"},
         {"id" : "CoreBlocks", "minVersion" : "1.0.0"},
         {"id" : "MultiBlock", "minVersion" : "1.0.0"},
-        {"id": "OreGeneration", "minVersion": "1.0.0"},
+        {"id" : "OreGeneration", "minVersion": "1.0.0"},
         {"id" : "Workstation", "minVersion" : "1.0.0"},
         {"id" : "WorkstationCrafting", "minVersion" : "1.0.1"}
     ],
