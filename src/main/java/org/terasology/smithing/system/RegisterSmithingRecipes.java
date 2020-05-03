@@ -16,10 +16,10 @@
 package org.terasology.smithing.system;
 
 import com.google.common.base.Predicate;
-import org.terasology.core.logic.blockDropGrammar.BlockDropGrammarComponent;
 import org.terasology.entitySystem.entity.EntityRef;
 import org.terasology.entitySystem.systems.BaseComponentSystem;
 import org.terasology.entitySystem.systems.RegisterSystem;
+import org.terasology.logic.blockDropGrammar.BlockDropGrammarComponent;
 import org.terasology.logic.inventory.InventoryComponent;
 import org.terasology.math.Region3i;
 import org.terasology.math.geom.Vector3f;
