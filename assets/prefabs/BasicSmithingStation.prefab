@@ -3,8 +3,8 @@
         "name": "Basic Smithing Station"
     },
     "Network": {},
-    "BlockDropGrammar": {
-        "blockDrops": ["2*CoreBlocks:CobbleStone"]
+    "DropGrammar": {
+        "blockDrops": ["2*CoreAssets:CobbleStone"]
     },
     "InteractionTarget": {},
     "InteractionScreen": {
