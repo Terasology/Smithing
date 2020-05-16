@@ -19,7 +19,7 @@ import com.google.common.base.Predicate;
 import org.terasology.entitySystem.entity.EntityRef;
 import org.terasology.entitySystem.systems.BaseComponentSystem;
 import org.terasology.entitySystem.systems.RegisterSystem;
-import org.terasology.logic.inventory.block.BlockDropGrammarComponent;
+import org.terasology.drops.grammar.DropGrammarComponent;
 import org.terasology.logic.inventory.InventoryComponent;
 import org.terasology.math.Region3i;
 import org.terasology.math.geom.Vector3f;
@@ -79,7 +79,7 @@ public class RegisterSmithingRecipes extends BaseComponentSystem {
         multiBlockRecipeRegistry.addMultiBlockFormItemRecipe(
                 new UniformMultiBlockFormItemRecipe(
                         new ToolTypeEntityFilter("hammer"), new UseOnTopFilter(),
-                        new BlockUriEntityFilter(new BlockUri("CoreBlocks:CobbleStone")), new Basic3DSizeFilter(2, 1, 1, 1),
+                        new BlockUriEntityFilter(new BlockUri("CoreAssets:CobbleStone")), new Basic3DSizeFilter(2, 1, 1, 1),
                         "Smithing:BasicSmithingStation",
                         new UniformBlockReplacementCallback<Void>(blockManager.getBlock("Smithing:BasicSmithingStation"))));
     }
@@ -90,7 +90,7 @@ public class RegisterSmithingRecipes extends BaseComponentSystem {
     private void addMultiblockRecipes() {
         multiBlockRecipeRegistry.addMultiBlockFormItemRecipe(
                 new SurroundMultiBlockFormItemRecipe(
-                        new ToolTypeEntityFilter("hammer"), new BlockUriEntityFilter(new BlockUri("CoreBlocks:Brick")),
+                        new ToolTypeEntityFilter("hammer"), new BlockUriEntityFilter(new BlockUri("CoreAssets:Brick")),
                         new BlockUriEntityFilter(new BlockUri("Engine:Air")), new AllowableCharcoalPitSize(),
                         new AnyActivityFilter(), "Smithing:CharcoalPit", new CharcoalPitCallback()));
 
@@ -98,7 +98,7 @@ public class RegisterSmithingRecipes extends BaseComponentSystem {
                 new ToolTypeEntityFilter("hammer"), new Basic2DSizeFilter(2, 2), new AnyActivityFilter(),
                 "Smithing:Bloomery", null);
         bloomeryRecipe.addLayer(1, 1, new BlockUriEntityFilter(new BlockUri("Smithing:CopperStructure")));
-        bloomeryRecipe.addLayer(2, 2, new BlockUriEntityFilter(new BlockUri("CoreBlocks:Brick")));
+        bloomeryRecipe.addLayer(2, 2, new BlockUriEntityFilter(new BlockUri("CoreAssets:Brick")));
         multiBlockRecipeRegistry.addMultiBlockFormItemRecipe(bloomeryRecipe);
     }
     
@@ -109,7 +109,7 @@ public class RegisterSmithingRecipes extends BaseComponentSystem {
         @Override
         public Map<Vector3i, Block> getReplacementMap(Region3i region, Void designDetails) {
             BlockManager blockManager = CoreRegistry.get(BlockManager.class);
-            Block brickBlock = blockManager.getBlock("CoreBlocks:Brick");
+            Block brickBlock = blockManager.getBlock("CoreAssets:Brick");
 
             Vector3i min = region.min();
             Vector3i max = region.max();
@@ -126,7 +126,7 @@ public class RegisterSmithingRecipes extends BaseComponentSystem {
             }
 
             // Fill up the internal blocks of top layer
-            Block halfBlock = blockManager.getBlock("CoreBlocks:Brick:Engine:HalfBlock");
+            Block halfBlock = blockManager.getBlock("CoreAssets:Brick:Engine:HalfBlock");
             Region3i topLayerInternal = Region3i.createFromMinAndSize(new Vector3i(min.x, max.y, min.z), new Vector3i(size.x, 1, size.z));
             for (Vector3i position : topLayerInternal) {
                 result.put(position, halfBlock);
@@ -134,22 +134,22 @@ public class RegisterSmithingRecipes extends BaseComponentSystem {
 
             // Top layer sides
             for (int x = min.x + 1; x < max.x; x++) {
-                result.put(new Vector3i(x, max.y, min.z), blockManager.getBlock("CoreBlocks:Brick:Engine:HalfSlope.FRONT"));
-                result.put(new Vector3i(x, max.y, max.z), blockManager.getBlock("CoreBlocks:Brick:Engine:HalfSlope.BACK"));
+                result.put(new Vector3i(x, max.y, min.z), blockManager.getBlock("CoreAssets:Brick:Engine:HalfSlope.FRONT"));
+                result.put(new Vector3i(x, max.y, max.z), blockManager.getBlock("CoreAssets:Brick:Engine:HalfSlope.BACK"));
             }
             for (int z = min.z + 1; z < max.z; z++) {
-                result.put(new Vector3i(min.x, max.y, z), blockManager.getBlock("CoreBlocks:Brick:Engine:HalfSlope.LEFT"));
-                result.put(new Vector3i(max.x, max.y, z), blockManager.getBlock("CoreBlocks:Brick:Engine:HalfSlope.RIGHT"));
+                result.put(new Vector3i(min.x, max.y, z), blockManager.getBlock("CoreAssets:Brick:Engine:HalfSlope.LEFT"));
+                result.put(new Vector3i(max.x, max.y, z), blockManager.getBlock("CoreAssets:Brick:Engine:HalfSlope.RIGHT"));
             }
 
             // Top layer corners
-            result.put(new Vector3i(min.x, max.y, min.z), blockManager.getBlock("CoreBlocks:Brick:Engine:HalfSlopeCorner.LEFT"));
-            result.put(new Vector3i(max.x, max.y, max.z), blockManager.getBlock("CoreBlocks:Brick:Engine:HalfSlopeCorner.RIGHT"));
-            result.put(new Vector3i(min.x, max.y, max.z), blockManager.getBlock("CoreBlocks:Brick:Engine:HalfSlopeCorner.BACK"));
-            result.put(new Vector3i(max.x, max.y, min.z), blockManager.getBlock("CoreBlocks:Brick:Engine:HalfSlopeCorner.FRONT"));
+            result.put(new Vector3i(min.x, max.y, min.z), blockManager.getBlock("CoreAssets:Brick:Engine:HalfSlopeCorner.LEFT"));
+            result.put(new Vector3i(max.x, max.y, max.z), blockManager.getBlock("CoreAssets:Brick:Engine:HalfSlopeCorner.RIGHT"));
+            result.put(new Vector3i(min.x, max.y, max.z), blockManager.getBlock("CoreAssets:Brick:Engine:HalfSlopeCorner.BACK"));
+            result.put(new Vector3i(max.x, max.y, min.z), blockManager.getBlock("CoreAssets:Brick:Engine:HalfSlopeCorner.FRONT"));
 
             // Chimney
-            result.put(new Vector3i(center.x, max.y, center.z), blockManager.getBlock("CoreBlocks:Brick:StructuralResources:PillarBase"));
+            result.put(new Vector3i(center.x, max.y, center.z), blockManager.getBlock("CoreAssets:Brick:StructuralResources:PillarBase"));
 
             return result;
         }
@@ -175,8 +175,8 @@ public class RegisterSmithingRecipes extends BaseComponentSystem {
             // We drop CobbleStone equal to what was used minus top layer (it is rendered unusable in the process)
             int cobbleStoneCount = 2 * (size.x + size.z - 2) * (size.y - 1) + (size.x - 2) * (size.z - 2);
 
-            BlockDropGrammarComponent drop = new BlockDropGrammarComponent();
-            drop.blockDrops = Arrays.asList(cobbleStoneCount + "*CoreBlocks:Brick");
+            DropGrammarComponent drop = new DropGrammarComponent();
+            drop.blockDrops = Arrays.asList(cobbleStoneCount + "*CoreAssets:Brick");
             entity.addComponent(drop);
         }
     }
