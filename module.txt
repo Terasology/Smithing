@@ -1,16 +1,19 @@
 {
-    "id" : "Smithing",
-    "version" : "1.0.4-SNAPSHOT",
-    "author" : "XTariq",
-    "displayName" : "Smithing",
-    "description" : "A module that implements some simple systems for smithing metal-based items",
-    "dependencies" : [
-        {"id" : "Core", "minVersion" : "3.0.0"},
-        {"id" : "CoreBlocks", "minVersion" : "1.0.0"},
-        {"id" : "MultiBlock", "minVersion" : "1.0.0"},
-        {"id" : "OreGeneration", "minVersion": "1.0.0"},
-        {"id" : "Workstation", "minVersion" : "1.0.0"},
-        {"id" : "WorkstationCrafting", "minVersion" : "1.0.1"}
+    "id": "Smithing",
+    "version": "1.1.0",
+    "author": "XTariq",
+    "displayName": "Smithing",
+    "description": "A module that implements some simple systems for smithing metal-based items",
+    "dependencies": [
+        { "id": "CoreAssets", "minVersion": "2.0.1" },
+        { "id": "Drops", "minVersion": "1.0.1" },
+        { "id": "Inventory", "minVersion": "1.1.0" },
+        { "id": "MultiBlock", "minVersion": "1.1.0" },
+        { "id": "OreGeneration", "minVersion": "1.0.0" },
+        { "id": "Workstation", "minVersion": "1.1.0" },
+        { "id": "WorkstationCrafting", "minVersion": "1.0.1" }
     ],
-    "serverSideOnly" : false
+    "serverSideOnly": false,
+    "isAsset": true,
+    "isLibrary": true
 }
