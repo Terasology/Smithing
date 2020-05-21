@@ -1,6 +1,6 @@
 {
     "OreGenDefinition": {},
-    "PocketOreGen":
+    "PocketDensityOreGen":
     {
         "block" : "Smithing:GoldOre",
         "frequency": 7.5,
@@ -19,6 +19,6 @@
         "noiseLevelRange" : 0,
         "noiseCutoff" : 0,
         "noiseCutoffRange" : 0,
-        "densityCutoff" : 40
+        "minDensityoff" : 40
     }
 }
