@@ -1,6 +1,6 @@
 {
     "OreGenDefinition": {},
-    "PocketOreGen":
+    "PocketDensityOreGen":
     {
         "block" : "Smithing:MysticOre",
         "frequency": 2.5,
@@ -19,6 +19,6 @@
         "noiseLevelRange" : 0,
         "noiseCutoff" : 0,
         "noiseCutoffRange" : 0,
-        "densityCutoff" : 75
+        "minDensityoff" : 75
     }
 }

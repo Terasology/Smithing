@@ -1,6 +1,6 @@
 {
     "id": "Smithing",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "author": "XTariq",
     "displayName": "Smithing",
     "description": "A module that implements some simple systems for smithing metal-based items",
@@ -9,7 +9,7 @@
         { "id": "Drops", "minVersion": "1.0.1" },
         { "id": "Inventory", "minVersion": "1.1.0" },
         { "id": "MultiBlock", "minVersion": "1.1.0" },
-        { "id": "OreGeneration", "minVersion": "1.0.0" },
+        { "id": "OreGeneration", "minVersion": "2.0.0" },
         { "id": "Workstation", "minVersion": "1.1.0" },
         { "id": "WorkstationCrafting", "minVersion": "1.0.1" }
     ],
