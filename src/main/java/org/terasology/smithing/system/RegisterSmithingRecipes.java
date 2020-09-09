@@ -1,27 +1,19 @@
-/*
- * Copyright 2016 MovingBlocks
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+// Copyright 2020 The Terasology Foundation
+// SPDX-License-Identifier: Apache-2.0
 package org.terasology.smithing.system;
 
 import com.google.common.base.Predicate;
-import org.terasology.entitySystem.entity.EntityRef;
-import org.terasology.entitySystem.systems.BaseComponentSystem;
-import org.terasology.entitySystem.systems.RegisterSystem;
 import org.terasology.drops.grammar.DropGrammarComponent;
-import org.terasology.logic.inventory.InventoryComponent;
-import org.terasology.math.Region3i;
+import org.terasology.engine.entitySystem.entity.EntityRef;
+import org.terasology.engine.entitySystem.systems.BaseComponentSystem;
+import org.terasology.engine.entitySystem.systems.RegisterSystem;
+import org.terasology.engine.math.Region3i;
+import org.terasology.engine.registry.CoreRegistry;
+import org.terasology.engine.registry.In;
+import org.terasology.engine.world.block.Block;
+import org.terasology.engine.world.block.BlockManager;
+import org.terasology.engine.world.block.BlockUri;
+import org.terasology.inventory.logic.InventoryComponent;
 import org.terasology.math.geom.Vector3f;
 import org.terasology.math.geom.Vector3i;
 import org.terasology.multiBlock.Basic2DSizeFilter;
@@ -36,23 +28,18 @@ import org.terasology.multiBlock.recipe.UniformMultiBlockFormItemRecipe;
 import org.terasology.processing.system.AnyActivityFilter;
 import org.terasology.processing.system.ToolTypeEntityFilter;
 import org.terasology.processing.system.UseOnTopFilter;
-import org.terasology.registry.CoreRegistry;
-import org.terasology.registry.In;
 import org.terasology.smithing.Smithing;
 import org.terasology.smithing.component.CharcoalPitComponent;
 import org.terasology.workstation.system.WorkstationRegistry;
 import org.terasology.workstationCrafting.system.CraftingWorkstationProcessFactory;
-import org.terasology.world.block.Block;
-import org.terasology.world.block.BlockManager;
-import org.terasology.world.block.BlockUri;
 
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
 /*
-* Establishes a system for registering new recipes
-*/
+ * Establishes a system for registering new recipes
+ */
 @RegisterSystem
 public class RegisterSmithingRecipes extends BaseComponentSystem {
     @In
@@ -64,8 +51,10 @@ public class RegisterSmithingRecipes extends BaseComponentSystem {
 
     @Override
     public void initialise() {
-        workstationRegistry.registerProcessFactory(Smithing.BASIC_SMITHING_PROCESS, new CraftingWorkstationProcessFactory());
-        workstationRegistry.registerProcessFactory(Smithing.STANDARD_SMITHING_PROCESS, new CraftingWorkstationProcessFactory());
+        workstationRegistry.registerProcessFactory(Smithing.BASIC_SMITHING_PROCESS,
+                new CraftingWorkstationProcessFactory());
+        workstationRegistry.registerProcessFactory(Smithing.STANDARD_SMITHING_PROCESS,
+                new CraftingWorkstationProcessFactory());
 
         addWorkstationRecipes();
 
@@ -73,20 +62,22 @@ public class RegisterSmithingRecipes extends BaseComponentSystem {
     }
 
     /*
-    * Adds a new smithing recipe to the workstation
-    */
+     * Adds a new smithing recipe to the workstation
+     */
     private void addWorkstationRecipes() {
         multiBlockRecipeRegistry.addMultiBlockFormItemRecipe(
                 new UniformMultiBlockFormItemRecipe(
                         new ToolTypeEntityFilter("hammer"), new UseOnTopFilter(),
-                        new BlockUriEntityFilter(new BlockUri("CoreAssets:CobbleStone")), new Basic3DSizeFilter(2, 1, 1, 1),
+                        new BlockUriEntityFilter(new BlockUri("CoreAssets:CobbleStone")), new Basic3DSizeFilter(2, 1,
+                        1, 1),
                         "Smithing:BasicSmithingStation",
-                        new UniformBlockReplacementCallback<Void>(blockManager.getBlock("Smithing:BasicSmithingStation"))));
+                        new UniformBlockReplacementCallback<Void>(blockManager.getBlock("Smithing" +
+                                ":BasicSmithingStation"))));
     }
 
     /*
-    * Adds a new multiblock recipe
-    */
+     * Adds a new multiblock recipe
+     */
     private void addMultiblockRecipes() {
         multiBlockRecipeRegistry.addMultiBlockFormItemRecipe(
                 new SurroundMultiBlockFormItemRecipe(
@@ -101,10 +92,10 @@ public class RegisterSmithingRecipes extends BaseComponentSystem {
         bloomeryRecipe.addLayer(2, 2, new BlockUriEntityFilter(new BlockUri("CoreAssets:Brick")));
         multiBlockRecipeRegistry.addMultiBlockFormItemRecipe(bloomeryRecipe);
     }
-    
+
     /*
-    * Creates the charcoal pit
-    */
+     * Creates the charcoal pit
+     */
     private final static class CharcoalPitCallback implements MultiBlockCallback<Void> {
         @Override
         public Map<Vector3i, Block> getReplacementMap(Region3i region, Void designDetails) {
@@ -127,29 +118,39 @@ public class RegisterSmithingRecipes extends BaseComponentSystem {
 
             // Fill up the internal blocks of top layer
             Block halfBlock = blockManager.getBlock("CoreAssets:Brick:Engine:HalfBlock");
-            Region3i topLayerInternal = Region3i.createFromMinAndSize(new Vector3i(min.x, max.y, min.z), new Vector3i(size.x, 1, size.z));
+            Region3i topLayerInternal = Region3i.createFromMinAndSize(new Vector3i(min.x, max.y, min.z),
+                    new Vector3i(size.x, 1, size.z));
             for (Vector3i position : topLayerInternal) {
                 result.put(position, halfBlock);
             }
 
             // Top layer sides
             for (int x = min.x + 1; x < max.x; x++) {
-                result.put(new Vector3i(x, max.y, min.z), blockManager.getBlock("CoreAssets:Brick:Engine:HalfSlope.FRONT"));
-                result.put(new Vector3i(x, max.y, max.z), blockManager.getBlock("CoreAssets:Brick:Engine:HalfSlope.BACK"));
+                result.put(new Vector3i(x, max.y, min.z), blockManager.getBlock("CoreAssets:Brick:Engine:HalfSlope" +
+                        ".FRONT"));
+                result.put(new Vector3i(x, max.y, max.z), blockManager.getBlock("CoreAssets:Brick:Engine:HalfSlope" +
+                        ".BACK"));
             }
             for (int z = min.z + 1; z < max.z; z++) {
-                result.put(new Vector3i(min.x, max.y, z), blockManager.getBlock("CoreAssets:Brick:Engine:HalfSlope.LEFT"));
-                result.put(new Vector3i(max.x, max.y, z), blockManager.getBlock("CoreAssets:Brick:Engine:HalfSlope.RIGHT"));
+                result.put(new Vector3i(min.x, max.y, z), blockManager.getBlock("CoreAssets:Brick:Engine:HalfSlope" +
+                        ".LEFT"));
+                result.put(new Vector3i(max.x, max.y, z), blockManager.getBlock("CoreAssets:Brick:Engine:HalfSlope" +
+                        ".RIGHT"));
             }
 
             // Top layer corners
-            result.put(new Vector3i(min.x, max.y, min.z), blockManager.getBlock("CoreAssets:Brick:Engine:HalfSlopeCorner.LEFT"));
-            result.put(new Vector3i(max.x, max.y, max.z), blockManager.getBlock("CoreAssets:Brick:Engine:HalfSlopeCorner.RIGHT"));
-            result.put(new Vector3i(min.x, max.y, max.z), blockManager.getBlock("CoreAssets:Brick:Engine:HalfSlopeCorner.BACK"));
-            result.put(new Vector3i(max.x, max.y, min.z), blockManager.getBlock("CoreAssets:Brick:Engine:HalfSlopeCorner.FRONT"));
+            result.put(new Vector3i(min.x, max.y, min.z), blockManager.getBlock("CoreAssets:Brick:Engine" +
+                    ":HalfSlopeCorner.LEFT"));
+            result.put(new Vector3i(max.x, max.y, max.z), blockManager.getBlock("CoreAssets:Brick:Engine" +
+                    ":HalfSlopeCorner.RIGHT"));
+            result.put(new Vector3i(min.x, max.y, max.z), blockManager.getBlock("CoreAssets:Brick:Engine" +
+                    ":HalfSlopeCorner.BACK"));
+            result.put(new Vector3i(max.x, max.y, min.z), blockManager.getBlock("CoreAssets:Brick:Engine" +
+                    ":HalfSlopeCorner.FRONT"));
 
             // Chimney
-            result.put(new Vector3i(center.x, max.y, center.z), blockManager.getBlock("CoreAssets:Brick:StructuralResources:PillarBase"));
+            result.put(new Vector3i(center.x, max.y, center.z), blockManager.getBlock("CoreAssets:Brick" +
+                    ":StructuralResources:PillarBase"));
 
             return result;
         }
@@ -182,8 +183,8 @@ public class RegisterSmithingRecipes extends BaseComponentSystem {
     }
 
     /*
-    * Defines the acceptable charcoal pit size
-    */
+     * Defines the acceptable charcoal pit size
+     */
     private final static class AllowableCharcoalPitSize implements Predicate<Vector3i> {
         @Override
         public boolean apply(Vector3i value) {
