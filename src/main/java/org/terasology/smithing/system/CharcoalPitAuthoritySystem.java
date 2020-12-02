@@ -109,8 +109,8 @@ public class CharcoalPitAuthoritySystem extends BaseComponentSystem {
 
             BlockRegionComponent region = entity.getComponent(BlockRegionComponent.class);
             if (region != null) {
-                Vector3f center = region.region.center();
-                Vector3i max = region.region.max();
+                org.joml.Vector3f center = region.region.center(new org.joml.Vector3f());
+                org.joml.Vector3i max = region.region.getMax(new org.joml.Vector3i());
 
                 LocationComponent location = entity.getComponent(LocationComponent.class);
                 location.setWorldPosition(new Vector3f(center.x - 0.5f, max.y + 1, center.z - 0.5f));
