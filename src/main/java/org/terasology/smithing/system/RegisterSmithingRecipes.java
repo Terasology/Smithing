@@ -16,13 +16,14 @@
 package org.terasology.smithing.system;
 
 import com.google.common.base.Predicate;
+import org.joml.RoundingMode;
+import org.joml.Vector3f;
 import org.terasology.entitySystem.entity.EntityRef;
 import org.terasology.entitySystem.systems.BaseComponentSystem;
 import org.terasology.entitySystem.systems.RegisterSystem;
 import org.terasology.drops.grammar.DropGrammarComponent;
 import org.terasology.logic.inventory.InventoryComponent;
 import org.terasology.math.Region3i;
-import org.terasology.math.geom.Vector3f;
 import org.terasology.math.geom.Vector3i;
 import org.terasology.multiBlock.Basic2DSizeFilter;
 import org.terasology.multiBlock.Basic3DSizeFilter;
@@ -44,6 +45,8 @@ import org.terasology.workstation.system.WorkstationRegistry;
 import org.terasology.workstationCrafting.system.CraftingWorkstationProcessFactory;
 import org.terasology.world.block.Block;
 import org.terasology.world.block.BlockManager;
+import org.terasology.world.block.BlockRegion;
+import org.terasology.world.block.BlockRegions;
 import org.terasology.world.block.BlockUri;
 
 import java.util.Arrays;
@@ -105,58 +108,58 @@ public class RegisterSmithingRecipes extends BaseComponentSystem {
     /*
     * Creates the charcoal pit
     */
-    private final static class CharcoalPitCallback implements MultiBlockCallback<Void> {
+    private static final class CharcoalPitCallback implements MultiBlockCallback<Void> {
         @Override
-        public Map<Vector3i, Block> getReplacementMap(Region3i region, Void designDetails) {
+        public Map<org.joml.Vector3i, Block> getReplacementMap(BlockRegion region, Void designDetails) {
             BlockManager blockManager = CoreRegistry.get(BlockManager.class);
             Block brickBlock = blockManager.getBlock("CoreAssets:Brick");
 
-            Vector3i min = region.min();
-            Vector3i max = region.max();
-            Vector3i size = region.size();
-            Vector3f center = region.center();
+            org.joml.Vector3i min = region.getMin(new org.joml.Vector3i());
+            org.joml.Vector3i max = region.getMax(new org.joml.Vector3i());
+            org.joml.Vector3i size = region.getSize(new org.joml.Vector3i());
+            org.joml.Vector3f center = region.center(new Vector3f());
 
             // Generate map of blocks
-            Map<Vector3i, Block> result = new HashMap<>();
+            Map<org.joml.Vector3i, Block> result = new HashMap<>();
 
             // Fill up the non-top layer blocks
-            Region3i nonTopLayer = Region3i.createFromMinAndSize(min, new Vector3i(size.x, size.y - 1, size.z));
-            for (Vector3i position : nonTopLayer) {
+            BlockRegion nonTopLayer = BlockRegions.createFromMinAndSize(min, new org.joml.Vector3i(size.x, size.y - 1, size.z));
+            for (org.joml.Vector3i position : BlockRegions.iterable(nonTopLayer)) {
                 result.put(position, brickBlock);
             }
 
             // Fill up the internal blocks of top layer
             Block halfBlock = blockManager.getBlock("CoreAssets:Brick:Engine:HalfBlock");
-            Region3i topLayerInternal = Region3i.createFromMinAndSize(new Vector3i(min.x, max.y, min.z), new Vector3i(size.x, 1, size.z));
-            for (Vector3i position : topLayerInternal) {
+            BlockRegion topLayerInternal = BlockRegions.createFromMinAndSize(new org.joml.Vector3i(min.x, max.y, min.z), new org.joml.Vector3i(size.x, 1, size.z));
+            for (org.joml.Vector3i position : BlockRegions.iterable(topLayerInternal)) {
                 result.put(position, halfBlock);
             }
 
             // Top layer sides
-            for (int x = min.x + 1; x < max.x; x++) {
-                result.put(new Vector3i(x, max.y, min.z), blockManager.getBlock("CoreAssets:Brick:Engine:HalfSlope.FRONT"));
-                result.put(new Vector3i(x, max.y, max.z), blockManager.getBlock("CoreAssets:Brick:Engine:HalfSlope.BACK"));
+            for (int x = min.x() + 1; x < max.x(); x++) {
+                result.put(new org.joml.Vector3i(x, max.y(), min.z()), blockManager.getBlock("CoreAssets:Brick:Engine:HalfSlope.FRONT"));
+                result.put(new org.joml.Vector3i(x, max.y(), max.z()), blockManager.getBlock("CoreAssets:Brick:Engine:HalfSlope.BACK"));
             }
-            for (int z = min.z + 1; z < max.z; z++) {
-                result.put(new Vector3i(min.x, max.y, z), blockManager.getBlock("CoreAssets:Brick:Engine:HalfSlope.LEFT"));
-                result.put(new Vector3i(max.x, max.y, z), blockManager.getBlock("CoreAssets:Brick:Engine:HalfSlope.RIGHT"));
+            for (int z = min.z() + 1; z < max.z(); z++) {
+                result.put(new org.joml.Vector3i(min.x(), max.y(), z), blockManager.getBlock("CoreAssets:Brick:Engine:HalfSlope.LEFT"));
+                result.put(new org.joml.Vector3i(max.x(), max.y(), z), blockManager.getBlock("CoreAssets:Brick:Engine:HalfSlope.RIGHT"));
             }
 
             // Top layer corners
-            result.put(new Vector3i(min.x, max.y, min.z), blockManager.getBlock("CoreAssets:Brick:Engine:HalfSlopeCorner.LEFT"));
-            result.put(new Vector3i(max.x, max.y, max.z), blockManager.getBlock("CoreAssets:Brick:Engine:HalfSlopeCorner.RIGHT"));
-            result.put(new Vector3i(min.x, max.y, max.z), blockManager.getBlock("CoreAssets:Brick:Engine:HalfSlopeCorner.BACK"));
-            result.put(new Vector3i(max.x, max.y, min.z), blockManager.getBlock("CoreAssets:Brick:Engine:HalfSlopeCorner.FRONT"));
+            result.put(new org.joml.Vector3i(min.x(), max.y(), min.z()), blockManager.getBlock("CoreAssets:Brick:Engine:HalfSlopeCorner.LEFT"));
+            result.put(new org.joml.Vector3i(max.x(), max.y(), max.z()), blockManager.getBlock("CoreAssets:Brick:Engine:HalfSlopeCorner.RIGHT"));
+            result.put(new org.joml.Vector3i(min.x(), max.y(), max.z()), blockManager.getBlock("CoreAssets:Brick:Engine:HalfSlopeCorner.BACK"));
+            result.put(new org.joml.Vector3i(max.x(), max.y(), min.z()), blockManager.getBlock("CoreAssets:Brick:Engine:HalfSlopeCorner.FRONT"));
 
             // Chimney
-            result.put(new Vector3i(center.x, max.y, center.z), blockManager.getBlock("CoreAssets:Brick:StructuralResources:PillarBase"));
+            result.put(new org.joml.Vector3i((int) Math.ceil(center.x()), max.y(), (int) Math.ceil(center.z())), blockManager.getBlock("CoreAssets:Brick:StructuralResources:PillarBase"));
 
             return result;
         }
 
         @Override
-        public void multiBlockFormed(Region3i region, EntityRef entity, Void designDetails) {
-            Vector3i size = region.size();
+        public void multiBlockFormed(BlockRegion region, EntityRef entity, Void designDetails) {
+            org.joml.Vector3i size = region.getSize(new org.joml.Vector3i());
             int airBlockCount = (size.x - 2) * (size.y - 2) * (size.z - 2);
 
             // Setup minimum and maximum log count based on size of the multi-block
@@ -184,9 +187,9 @@ public class RegisterSmithingRecipes extends BaseComponentSystem {
     /*
     * Defines the acceptable charcoal pit size
     */
-    private final static class AllowableCharcoalPitSize implements Predicate<Vector3i> {
+    private static final class AllowableCharcoalPitSize implements Predicate<org.joml.Vector3i> {
         @Override
-        public boolean apply(Vector3i value) {
+        public boolean apply(org.joml.Vector3i value) {
             // Minimum size 3x3x3
             return (value.x >= 3 && value.y >= 3 && value.z >= 3
                     // X and Z are odd to allow finding center block
