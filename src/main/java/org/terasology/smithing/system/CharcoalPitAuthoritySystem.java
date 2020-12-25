@@ -98,7 +98,7 @@ public class CharcoalPitAuthoritySystem extends BaseComponentSystem {
                 Vector3f position =
                         region.region.center(new Vector3f())
                                 .sub(0.5f, 0, 0.5f)
-                                .setComponent(1, region.region.getMaxY() + 1);
+                                .setComponent(1, region.region.maxY() + 1);
 
                 LocationComponent location = entity.getComponent(LocationComponent.class);
                 location.setWorldPosition(position);
