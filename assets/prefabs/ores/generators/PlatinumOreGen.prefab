@@ -19,6 +19,6 @@
         "noiseLevelRange" : 0,
         "noiseCutoff" : 0,
         "noiseCutoffRange" : 0,
-        "minDensityoff" : 50
+        "minDensity" : 50
     }
 }
