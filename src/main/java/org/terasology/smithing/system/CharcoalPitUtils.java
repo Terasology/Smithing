@@ -15,11 +15,11 @@
  */
 package org.terasology.smithing.system;
 
+import org.terasology.engine.entitySystem.entity.EntityRef;
+import org.terasology.engine.logic.inventory.InventoryUtils;
+import org.terasology.engine.logic.inventory.ItemComponent;
 import org.terasology.smithing.component.CharcoalPitComponent;
 import org.terasology.workstationCrafting.component.CraftingStationIngredientComponent;
-import org.terasology.entitySystem.entity.EntityRef;
-import org.terasology.logic.inventory.InventoryUtils;
-import org.terasology.logic.inventory.ItemComponent;
 
 /*
 * Provides utilities for the logic and variables of the charcoal pit

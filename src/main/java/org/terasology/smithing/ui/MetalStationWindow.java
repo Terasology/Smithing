@@ -2,31 +2,31 @@
 // SPDX-License-Identifier: Apache-2.0
 package org.terasology.smithing.ui;
 
-import org.terasology.smithing.Smithing;
-import org.terasology.workstationCrafting.component.CraftingStationUpgradeRecipeComponent;
-import org.terasology.workstationCrafting.system.CraftingWorkstationUpgradeProcess;
-import org.terasology.workstationCrafting.system.recipe.workstation.UpgradeRecipe;
-import org.terasology.workstationCrafting.ui.workstation.StationAvailableRecipesWidget;
-import org.terasology.engine.Time;
-import org.terasology.entitySystem.entity.EntityRef;
+import org.terasology.engine.core.Time;
+import org.terasology.engine.entitySystem.entity.EntityRef;
+import org.terasology.engine.logic.players.LocalPlayer;
+import org.terasology.engine.registry.CoreRegistry;
+import org.terasology.engine.rendering.nui.BaseInteractionScreen;
+import org.terasology.engine.rendering.nui.NUIManager;
+import org.terasology.engine.rendering.nui.layers.ingame.inventory.InventoryGrid;
 import org.terasology.heat.component.HeatProducerComponent;
 import org.terasology.heat.ui.ThermometerWidget;
-import org.terasology.logic.players.LocalPlayer;
-import org.terasology.registry.CoreRegistry;
-import org.terasology.rendering.nui.BaseInteractionScreen;
-import org.terasology.rendering.nui.NUIManager;
 import org.terasology.nui.UIWidget;
 import org.terasology.nui.databinding.Binding;
-import org.terasology.rendering.nui.layers.ingame.inventory.InventoryGrid;
 import org.terasology.nui.widgets.ActivateEventListener;
 import org.terasology.nui.widgets.UIButton;
 import org.terasology.nui.widgets.UILoadBar;
 import org.terasology.processing.ui.VerticalTextureProgressWidget;
-import org.terasology.workstationCrafting.ui.WorkstationScreenUtils;
+import org.terasology.smithing.Smithing;
 import org.terasology.workstation.component.WorkstationProcessingComponent;
 import org.terasology.workstation.event.WorkstationProcessRequest;
 import org.terasology.workstation.process.WorkstationProcess;
 import org.terasology.workstation.system.WorkstationRegistry;
+import org.terasology.workstationCrafting.component.CraftingStationUpgradeRecipeComponent;
+import org.terasology.workstationCrafting.system.CraftingWorkstationUpgradeProcess;
+import org.terasology.workstationCrafting.system.recipe.workstation.UpgradeRecipe;
+import org.terasology.workstationCrafting.ui.WorkstationScreenUtils;
+import org.terasology.workstationCrafting.ui.workstation.StationAvailableRecipesWidget;
 
 import java.util.Collections;
 import java.util.List;

@@ -15,7 +15,7 @@
  */
 package org.terasology.smithing.event;
 
-import org.terasology.network.NetworkEvent;
+import org.terasology.engine.network.NetworkEvent;
 
 /*
 * Network event used to activate the charcoal pit
