@@ -10,7 +10,7 @@ import org.terasology.drops.grammar.DropGrammarComponent;
 import org.terasology.engine.entitySystem.entity.EntityRef;
 import org.terasology.engine.entitySystem.systems.BaseComponentSystem;
 import org.terasology.engine.entitySystem.systems.RegisterSystem;
-import org.terasology.logic.inventory.InventoryComponent;
+import org.terasology.module.inventory.components.InventoryComponent;
 import org.terasology.engine.registry.CoreRegistry;
 import org.terasology.engine.registry.In;
 import org.terasology.engine.world.block.Block;
