@@ -16,7 +16,7 @@
 package org.terasology.smithing.system;
 
 import org.terasology.engine.entitySystem.entity.EntityRef;
-import org.terasology.engine.logic.inventory.InventoryUtils;
+import org.terasology.module.inventory.systems.InventoryUtils;
 import org.terasology.engine.logic.inventory.ItemComponent;
 import org.terasology.smithing.component.CharcoalPitComponent;
 import org.terasology.workstationCrafting.component.CraftingStationIngredientComponent;

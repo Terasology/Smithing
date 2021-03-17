@@ -8,7 +8,7 @@ import org.terasology.engine.logic.players.LocalPlayer;
 import org.terasology.engine.registry.CoreRegistry;
 import org.terasology.engine.rendering.nui.BaseInteractionScreen;
 import org.terasology.engine.rendering.nui.NUIManager;
-import org.terasology.engine.rendering.nui.layers.ingame.inventory.InventoryGrid;
+import org.terasology.module.inventory.ui.InventoryGrid;
 import org.terasology.heat.component.HeatProducerComponent;
 import org.terasology.heat.ui.ThermometerWidget;
 import org.terasology.nui.UIWidget;
