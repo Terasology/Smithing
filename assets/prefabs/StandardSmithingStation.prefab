@@ -69,9 +69,11 @@
     "Health": {
         "currentHealth": 20,
         "maxHealth": 20,
-        "regenRate": 1,
-        "waitBeforeRegen": 3,
         "destroyEntityOnNoHealth": true
+    },
+    "BaseRegen": {
+        "regenRate": 1,
+        "waitBeforeRegen": 3
     },
     "Network": {},
     "ActAsBlock": {
