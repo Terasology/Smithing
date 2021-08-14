@@ -45,7 +45,7 @@ public class CharcoalPitComponent implements Component<CharcoalPitComponent> {
     public int outputSlotCount;
 
     @Override
-    public void copy(CharcoalPitComponent other) {
+    public void copyFrom(CharcoalPitComponent other) {
         this.burnStartWorldTime = other.burnStartWorldTime;
         this.burnFinishWorldTime = other.burnFinishWorldTime;
         this.minimumLogCount = other.minimumLogCount;
