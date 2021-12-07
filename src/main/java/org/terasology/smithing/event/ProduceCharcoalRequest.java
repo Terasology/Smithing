@@ -15,8 +15,8 @@
  */
 package org.terasology.smithing.event;
 
-import org.terasology.engine.entitySystem.event.Event;
 import org.terasology.engine.network.ServerEvent;
+import org.terasology.gestalt.entitysystem.event.Event;
 
 /*
 * Event used to begin the production of charcoal
